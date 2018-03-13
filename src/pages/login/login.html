@@ -1,33 +1,29 @@
 
-<ion-content padding class="login">
-  <img src="img\myOrderLogo.png">
+<ion-content padding scrollbar-y-auto>
+  <img src="../assets/imgs/myOrderLogo.png" 
+  style="width:65%">
  
-  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+  <form class="credentials" novalidate>
+      <ion-item class="item item-trns">
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" 
+          placeholder="Your email"></ion-input>
+      </ion-item>
  
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input formControlName="email" type="email" 
-        placeholder="Je emailadres"></ion-input>
-    </ion-item>
- 
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input formControlName="password" type="password" 
-        placeholder="Je wachtwoord"></ion-input>
-    </ion-item>
- 
-    <button btn-green block large type="submit">
-          LOGIN
-    </button>
-
+      <ion-item class="item item-trns">
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" 
+          placeholder="Password"></ion-input>
+      </ion-item>
   </form>
  
-    <button ion-button block clear (click)="goToSignup()">
-      <p>Registreer nieuw account</p>
-    </button>
- 
-    <button ion-button block clear (click)="goToResetPassword()">
-      <p>Wachtwoord vergeten</p>
-    </button>
+  <div class="buttons" text-center>
+    <button class="fb-login-bttn"
+        color="secondary" 
+        (click)="loginWithFacebook()" 
+        ion-button>
+        Login with Facebook 
+    </button> 
+  </div>
  
 </ion-content>
