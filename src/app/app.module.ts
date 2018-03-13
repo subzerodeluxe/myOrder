@@ -8,6 +8,9 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { GeoServiceProvider } from '../providers/geo-service/geo-service';
+import { OrderServiceProvider } from '../providers/order-service/order-service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider,
+    GeoServiceProvider,
+    OrderServiceProvider
   ]
 })
 export class AppModule {}
