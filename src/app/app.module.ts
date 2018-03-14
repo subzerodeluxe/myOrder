@@ -11,6 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { GeoServiceProvider } from '../providers/geo-service/geo-service';
 import { OrderServiceProvider } from '../providers/order-service/order-service';
+import { Geolocation } from '@ionic-native/geolocation';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { OrderServiceProvider } from '../providers/order-service/order-service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -31,6 +34,7 @@ import { OrderServiceProvider } from '../providers/order-service/order-service';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     GeoServiceProvider,

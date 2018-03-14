@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LocationInfo } from '../../models/location.interface';
+import { GeoServiceProvider } from '../../providers/geo-service/geo-service';
 
 @IonicPage({
   name: 'location'
@@ -14,7 +15,7 @@ export class LocationPage {
 
   locations: LocationInfo[];
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController, private geoService: GeoServiceProvider,
     public navParams: NavParams) {
   }
 
@@ -29,6 +30,20 @@ export class LocationPage {
       {name: "Cul de Sac", address: "Heuvel 4", zipcode: "5038 CN", city: "Tilburg"}
     ]
 
+    this.getLocations();
+  }
+
+  getLocations() {
+    let outcome: any; 
+    this.geoService.fetchLocations()
+      .then((positionError) => {
+        outcome = positionError;
+        console.log("Outcome " + outcome); 
+      })
+      .catch((err) => {
+        outcome = err;
+        console.log("ERROR " + JSON.stringify(outcome)); 
+      })
   }
 
 }
