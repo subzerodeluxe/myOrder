@@ -8,8 +8,8 @@ export class GeoServiceProvider {
   _API_KEY: string = '&key=AIzaSyCZpp6dL7hmbmJfxqPOqve7wTYgu1QglAw';
   _BASE: string = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
   _LOCATION: string = 'location='; 
-  _RADIUS: string = '&radius=1500';
-  _TYPE: string = '&type=cafe';
+  _RADIUS: string = '&radius=2500';
+  _TYPE: string = '&type=bar&type=cafe&type=bar&type=night_club&type=establishment';
   
 
   constructor(public http: HttpClient, private geo: Geolocation) { }
@@ -42,10 +42,9 @@ export class GeoServiceProvider {
       headers.append('Content-Type', 'application/json');
       headers.append('Accept', 'application/json');
 
-    this.http.get(endPoint, {
-      headers: headers
-    }).subscribe(data => {
-        console.log(JSON.stringify(data)); 
+    return this.http.get(endPoint, { headers: headers})  
+      .subscribe(data => {
+       return data; 
       })
   }
 
