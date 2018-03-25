@@ -38,7 +38,7 @@ export class LocationPage {
     this.geoService.fetchLocations()
       .then((positionError) => {
         outcome = positionError;
-        console.log("Outcome " + outcome); 
+        console.log("Outcome " + JSON.stringify(outcome)); 
       })
       .catch((err) => {
         outcome = err;
