@@ -16,27 +16,18 @@ export class GeoServiceProvider {
 
 
   fetchLocations() {
-    return this.geo.getCurrentPosition()
-      .then((response) => {
-          // latitutude + longtitude 
-          let lat = response.coords.latitude;
-          let long = response.coords.longitude; 
-  
-          // invoke another function that will call Google API
-          this.getGoogleLocations(lat, long); 
-      })
-      .catch((err) => {
-        let positionError = err.message; 
-        console.log("ERROR IN SERVICE " + err.message); 
-        return positionError; 
-      })
+
+
+     // invoke another function that will call Google API
+     
+     
+     ///this.getGoogleLocations(lat, long); 
   }
 
   getGoogleLocations(lat, long) {
     //let endPoint = this._BASE + this._LOCATION + lat + ',' + long + '&radius=5000&type=cafe' + this._API_KEY;
     
-    let endPoint = this._BASE + this._LOCATION + lat + ',' 
-    + long + this._RADIUS + this._TYPE + this._API_KEY;
+    let endPoint = this._BASE + this._LOCATION + lat + ',' + long + this._RADIUS + this._TYPE + this._API_KEY;
 
     let headers = new HttpHeaders();
       headers.append('Content-Type', 'application/json');
@@ -44,10 +35,12 @@ export class GeoServiceProvider {
 
     return this.http.get(endPoint, { headers: headers})  
       .subscribe(data => {
-       return data; 
+        return data; 
       })
   }
 
-
+  getCurrentUserLocation(): Promise<any> {
+    return this.geo.getCurrentPosition(); 
+  }
 
 }

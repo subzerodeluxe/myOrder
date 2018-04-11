@@ -1,53 +1,5 @@
 .md, .ios {
     page-location {
-        ion-header {
-            background: color($colors, backgroundGreen);
-        }
-        ion-content {
-            background: color($colors, primary);
-        }
-
-        img.logo {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 8vh;
-            max-width:50%;
-            max-height:50%;
-        }
-
-        .current-location p {
-            padding-top: 2vh;
-            padding-bottom: 5vh;
-            color: #fff; 
-        }
-
-        .current-location #street {
-            font-weight: 700; 
-            font-size: 2.1rem
-        }
-
-        .current-location #city {
-            font-weight: 300; 
-            font-size: 2.1rem
-        }
-
-        .cafe-info #title {
-            color: color($colors, backgroundGreen);
-            font-weight: 700; 
-            font-size: 1.8rem
-        }
-        
-        .cafe-info #adress {
-            color: black; 
-            font-weight: 700; 
-            font-size: 1.8rem
-        }
-
-        .item > ion-icon, .item-inner > ion-icon {
-            min-height: 2.8rem;
-            font-size: 3.8rem;
-            line-height: 1;
-        }
+      
     }
 }

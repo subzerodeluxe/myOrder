@@ -28,7 +28,7 @@ export class LoginPage {
   }
 
   loginWithFacebook() {
-    this.navCtrl.setRoot('location');
+    this.navCtrl.setRoot('locationsList');
   }
 
 }
